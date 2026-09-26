@@ -1,11 +1,25 @@
+import Navbar from "./components/Navbar";
+
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Skills from "./sections/Skills";
+import Experience from "./sections/Experience";
+import Projects from "./sections/Projects";
+
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
-      <h1 className="text-5xl font-bold">
-        Isaac Frimpong
-      </h1>
+    <div className="min-h-screen bg-background text-primary">
+      <Navbar />
+
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
