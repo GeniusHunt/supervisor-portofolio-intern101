@@ -9,7 +9,7 @@ function Hero() {
       {/* Background word */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[18vw] font-extrabold uppercase leading-none tracking-[-0.08em] text-white/[0.025]"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[18vw] font-extrabold uppercase leading-none tracking-[-0.08em] text-white/2.5"
       >
         ISAAC
       </div>

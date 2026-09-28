@@ -29,7 +29,7 @@ function Experience() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[5%] right-[5%] h-96 w-96 rounded-full bg-white/[0.02] blur-[140px]"
+        className="pointer-events-none absolute bottom-[5%] right-[5%] h-96 w-96 rounded-full bg-white/2 blur-[140px]"
       />
 
       {/* =========================================================
@@ -103,6 +103,8 @@ function Experience() {
                     key={experience.id}
                     type="button"
                     onClick={() => setActiveExperience(index)}
+                    aria-label={`Show experience at ${experience.organization}`}
+                    aria-pressed={isActive}
                     className={`group relative block w-full text-left transition-all duration-500 ${
                       isActive
                         ? "translate-x-2"

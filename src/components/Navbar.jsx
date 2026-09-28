@@ -5,7 +5,6 @@ const navigation = [
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
 ];
 
 function Navbar() {
@@ -45,10 +44,10 @@ function Navbar() {
 
         {/* Contact Button */}
         <a
-          href="#contact"
+          href="#projects"
           className="hidden rounded-full border border-border px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-background md:block"
         >
-          Let's Talk
+          View Projects
         </a>
 
         {/* Mobile Menu Button */}

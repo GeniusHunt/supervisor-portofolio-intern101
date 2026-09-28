@@ -3,6 +3,7 @@ import { projects } from "../data/projects";
 
 function Projects() {
   const sectionRef = useRef(null);
+
   const [entered, setEntered] = useState(false);
   const [activeProject, setActiveProject] = useState(0);
 
@@ -19,7 +20,7 @@ function Projects() {
       },
       {
         threshold: 0.15,
-      }
+      },
     );
 
     observer.observe(element);
@@ -33,19 +34,31 @@ function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className={`relative overflow-hidden transition-colors duration-[1800ms] ${
-        entered ? "bg-[#f4f4f1] text-[#090909]" : "bg-[#090909] text-white"
-      }`}
+      className="relative overflow-hidden bg-[#090909] text-white"
     >
+      {/* =========================================================
+          DARK → LIGHT TRANSITION ATMOSPHERE
+      ========================================================= */}
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 top-[55vh] z-0 h-[45vh] w-full"
+        style={{
+          background:
+            "linear-gradient(to bottom, #090909 0%, #11110f 18%, #242421 38%, #555550 55%, #a5a49e 72%, #d8d7d1 88%, #e7e6e0 100%)",
+        }}
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 top-[65vh] z-0 h-[35vh] w-full bg-[#d8d7d1] opacity-50 blur-[80px]"
+      />
+
       {/* =========================================================
           CYBERNETIC ENTRY PORTAL
       ========================================================= */}
 
-      <div
-        className={`relative flex min-h-[85vh] items-center justify-center overflow-hidden transition-all duration-[1600ms] ${
-          entered ? "opacity-100" : "opacity-100"
-        }`}
-      >
+      <div className="relative flex min-h-[85vh] items-center justify-center overflow-hidden">
         {/* Cyber grid */}
         <div
           aria-hidden="true"
@@ -76,11 +89,13 @@ function Projects() {
           }}
         />
 
-        {/* Vertical scan line */}
+        {/* Scan line */}
         <div
           aria-hidden="true"
-          className={`absolute left-0 top-0 h-px w-full bg-white/50 transition-opacity duration-500 ${
-            entered ? "opacity-0" : "animate-[scan_4s_linear_infinite]"
+          className={`absolute left-0 top-0 h-px w-full bg-white/50 ${
+            entered
+              ? "opacity-0"
+              : "animate-[scan_4s_linear_infinite]"
           }`}
         />
 
@@ -160,7 +175,7 @@ function Projects() {
             <div className="h-px w-12 bg-white/20" />
           </div>
 
-          {/* loading indicator */}
+          {/* Loading indicator */}
           <div className="mt-10 flex h-1 w-40 overflow-hidden rounded-full bg-white/[0.08]">
             <div className="h-full w-1/3 animate-[loading_2s_ease-in-out_infinite] bg-white/60" />
           </div>
@@ -191,6 +206,7 @@ function Projects() {
           001 / 100
         </div>
 
+        {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
           <p className="font-mono text-[8px] uppercase tracking-[0.3em] text-white/25">
             Scroll to enter
@@ -200,21 +216,48 @@ function Projects() {
             <div className="h-1/2 w-full animate-[scrollIndicator_1.5s_ease-in-out_infinite] bg-white/60" />
           </div>
         </div>
+
+        {/* Transition seam */}
+        <div
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 z-20 h-32 w-full"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, rgba(216,215,209,0.15), rgba(216,215,209,0.55), #d8d7d1)",
+          }}
+        />
       </div>
 
       {/* =========================================================
-          WHITE PROJECT INTERFACE
+          LIGHT PROJECT INTERFACE
       ========================================================= */}
 
       <div
-        className={`relative min-h-screen overflow-hidden border-t border-black/10 px-6 py-24 transition-all duration-[1800ms] lg:px-10 lg:py-40 ${
+        className={`relative min-h-screen overflow-hidden border-t border-black/10 px-6 py-24 text-[#171715] transition-all duration-[1800ms] lg:px-10 lg:py-40 ${
           entered
             ? "translate-y-0 opacity-100"
             : "translate-y-16 opacity-0"
         }`}
+        style={{
+          background:
+            "linear-gradient(180deg, #d8d7d1 0%, #e3e2dc 12%, #e9e8e2 35%, #eeede7 65%, #e8e7e1 100%)",
+        }}
       >
-        {/* Light interface background texture */}
+        {/* =====================================================
+            BLACK / LIGHT FUSION HAZE
+        ===================================================== */}
 
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[130%] -translate-x-1/2 rounded-[50%] bg-black/[0.12] blur-[100px]"
+        />
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-10 left-1/2 h-40 w-[80%] -translate-x-1/2 rounded-[50%] bg-white/[0.18] blur-[70px]"
+        />
+
+        {/* Light interface texture */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-[0.035]"
@@ -228,13 +271,12 @@ function Projects() {
         {/* Huge background typography */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-20 top-20 select-none whitespace-nowrap text-[23vw] font-extrabold uppercase leading-none tracking-[-0.1em] text-black/[0.035]"
+          className="pointer-events-none absolute -right-20 top-20 select-none whitespace-nowrap text-[23vw] font-extrabold uppercase leading-none tracking-[-0.1em] text-black/[0.045]"
         >
           WORK
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl">
-
           {/* =====================================================
               HEADER
           ===================================================== */}
@@ -288,7 +330,6 @@ function Projects() {
           ===================================================== */}
 
           <div className="grid gap-5 lg:grid-cols-[0.7fr_1.3fr]">
-
             {/* Project list */}
             <div className="space-y-2">
               {projects.map((project, index) => {
@@ -299,6 +340,8 @@ function Projects() {
                     key={project.id}
                     type="button"
                     onClick={() => setActiveProject(index)}
+                    aria-label={`Show project: ${project.title}`}
+                    aria-pressed={isActive}
                     className={`group relative w-full overflow-hidden rounded-2xl border p-5 text-left transition-all duration-500 ${
                       isActive
                         ? "border-black/20 bg-black text-white shadow-2xl"
@@ -309,7 +352,9 @@ function Projects() {
                       <div className="flex items-center gap-4">
                         <span
                           className={`font-mono text-[9px] ${
-                            isActive ? "text-white/40" : "text-black/30"
+                            isActive
+                              ? "text-white/40"
+                              : "text-black/30"
                           }`}
                         >
                           {project.id}
@@ -317,7 +362,9 @@ function Projects() {
 
                         <span
                           className={`text-xs font-semibold uppercase tracking-[0.08em] ${
-                            isActive ? "text-white" : "text-black/65"
+                            isActive
+                              ? "text-white"
+                              : "text-black/65"
                           }`}
                         >
                           {project.shortTitle}
@@ -335,7 +382,6 @@ function Projects() {
                       </span>
                     </div>
 
-                    {/* active progress */}
                     {isActive && (
                       <div className="absolute bottom-0 left-0 h-px w-full bg-white/20">
                         <div className="h-full w-1/3 bg-white/70" />
@@ -350,19 +396,16 @@ function Projects() {
                 ACTIVE PROJECT
             ================================================= */}
 
-            <article className="group relative min-h-[620px] overflow-hidden rounded-[2rem] border border-black/[0.12] bg-white/70 p-5 backdrop-blur-xl sm:p-7">
-
+            <article className="group relative min-h-[620px] overflow-hidden rounded-[2rem] border border-black/[0.10] bg-[#f5f4ef]/75 p-5 shadow-[0_30px_80px_rgba(0,0,0,0.08)] backdrop-blur-2xl sm:p-7">
               {/* Project number */}
               <div className="absolute right-5 top-0 select-none text-[15rem] font-extrabold leading-none tracking-[-0.15em] text-black/[0.035] sm:right-10">
                 {active.id}
               </div>
 
               {/* Project image */}
-              <div className="relative h-72 overflow-hidden rounded-[1.5rem] border border-black/[0.10] bg-[#e7e7e3]">
-
-                {/* abstract interface */}
+              <div className="relative h-72 overflow-hidden rounded-[1.5rem] border border-black/[0.10] bg-[#deddd7]">
+                {/* Abstract interface */}
                 <div className="absolute inset-0">
-
                   <div className="absolute left-[12%] top-[18%] h-px w-[70%] bg-black/10" />
 
                   <div className="absolute left-[12%] top-[35%] h-px w-[50%] bg-black/10" />
@@ -376,10 +419,9 @@ function Projects() {
                   <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black/15">
                     <div className="absolute inset-3 rounded-full border border-dashed border-black/15" />
                   </div>
-
                 </div>
 
-                {/* placeholder label */}
+                {/* Placeholder label */}
                 <div className="absolute left-5 top-5 rounded-full border border-black/10 bg-white/50 px-3 py-2 backdrop-blur-md">
                   <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-black/40">
                     Project Visual
@@ -392,13 +434,12 @@ function Projects() {
                   </span>
                 </div>
 
-                {/* moving scan */}
+                {/* Moving scan */}
                 <div className="absolute left-0 top-0 h-full w-px animate-[projectScan_4s_linear_infinite] bg-black/20" />
               </div>
 
               {/* Project content */}
               <div className="relative z-10 mt-8">
-
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="rounded-full border border-black/10 bg-black/[0.03] px-3 py-2 font-mono text-[8px] uppercase tracking-[0.15em] text-black/40">
                     {active.category}
@@ -454,10 +495,9 @@ function Projects() {
                     ))}
                   </div>
                 </div>
-
               </div>
 
-              {/* bottom status */}
+              {/* Bottom status */}
               <div className="mt-8 flex items-center justify-between border-t border-black/10 pt-5">
                 <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-black/25">
                   Conceptual System
@@ -468,7 +508,6 @@ function Projects() {
                   Interface Ready
                 </span>
               </div>
-
             </article>
           </div>
 
@@ -478,7 +517,6 @@ function Projects() {
 
           <div className="mt-20 border-t border-black/10 pt-8 lg:mt-28">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-
               <div>
                 <p className="text-[9px] uppercase tracking-[0.3em] text-black/30">
                   From concept to system
@@ -493,10 +531,8 @@ function Projects() {
               <div className="font-mono text-[9px] uppercase tracking-[0.25em] text-black/25">
                 PROJECTS / 03
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>

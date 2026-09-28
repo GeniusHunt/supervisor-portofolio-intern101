@@ -9,7 +9,7 @@ function About() {
       {/* Large background typography */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-10 top-20 select-none text-[22vw] font-extrabold uppercase leading-none tracking-[-0.08em] text-white/[0.025] lg:-right-20"
+        className="pointer-events-none absolute -right-10 top-20 select-none text-[22vw] font-extrabold uppercase leading-none tracking-[-0.08em] text-white/2.5 lg:-right-20"
       >
         About
       </div>
@@ -90,7 +90,7 @@ function About() {
           {/* Right Content / Image Placeholder */}
           <div className="lg:pt-12">
 
-            <div className="relative aspect-[4/5] overflow-hidden bg-surface-light">
+            <div className="relative aspect-4/5 overflow-hidden bg-surface-light">
               
               {/* Placeholder */}
               <div className="absolute inset-0 flex flex-col items-center justify-center border border-border">
@@ -122,7 +122,7 @@ function About() {
 
             {/* Caption beneath image */}
             <div className="mt-5 flex items-start justify-between border-t border-border pt-4">
-              <p className="max-w-[200px] text-xs leading-5 text-secondary">
+              <p className="max-w-50 text-xs leading-5 text-secondary">
                 Management Information Systems &amp; IT professional with
                 extensive technology experience.
               </p>

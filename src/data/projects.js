@@ -9,6 +9,7 @@ export const projects = [
     technologies: ["Python", "JavaScript", "Full-Stack"],
     focus: ["Revenue Tracking", "Digital Receipts", "Dashboards"],
   },
+
   {
     id: "02",
     category: "Concept Project",
@@ -19,6 +20,7 @@ export const projects = [
     technologies: ["JavaScript", "Custom Software"],
     focus: ["Health Systems", "Inventory", "Records"],
   },
+
   {
     id: "03",
     category: "Concept Project",
